@@ -30,10 +30,10 @@
           >
         </li>
       </ul>
-      <button type="button" class="btn btn-success" routerLink="/login">
+      <button *ngIf="! isLoggedIn()" type="button" class="btn btn-success" routerLink="/login">
         Login
       </button>
-      <button type="button" class="btn btn-danger">Logout</button>
+      <button *ngIf="isLoggedIn()" type="button" class="btn btn-danger" (click)="logout()">Logout</button>
     </div>
   </div>
 </nav>
