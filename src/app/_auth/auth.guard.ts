@@ -7,7 +7,7 @@ import {
   Router,
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { UserAuthService } from '../_services/user-auth.service';
+import { UserAuthService } from '../_services/user-Auth.service';
 import { UserService } from '../_services/user.service';
 
 @Injectable({
