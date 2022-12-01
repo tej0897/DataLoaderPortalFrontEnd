@@ -8,7 +8,7 @@ import { UserComponent } from './user/user.component';
 import { AuthGuard } from './_auth/auth.guard';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: UserComponent },
   {
     path: 'admin',
     component: AdminComponent,
@@ -18,8 +18,6 @@ const routes: Routes = [
   {
     path: 'user',
     component: UserComponent,
-    canActivate: [AuthGuard],
-    data: { roles: ['User'] },
   },
   { path: 'login', component: LoginComponent },
   { path: 'forbidden', component: ForbiddenComponent },

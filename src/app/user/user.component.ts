@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../_services/user.service';
 import * as XLSX from 'xlsx';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-user',
@@ -10,7 +11,7 @@ import * as XLSX from 'xlsx';
 export class UserComponent implements OnInit {
   message: any;
   convertedJson : String | any;
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private http: HttpClient) {}
 
   ngOnInit(): void {
     this.forUser();
@@ -41,6 +42,15 @@ export class UserComponent implements OnInit {
         const data = XLSX.utils.sheet_to_json(workBook.Sheets[sheet]);
         console.log(data);
         this.convertedJson = JSON.stringify(data, undefined, 4);
+        console.log(this.convertedJson);
+        this.http.post<any>('http://localhost:8080/addData', data).subscribe(
+          (res)=>{
+            alert("Operation Success!");
+            console.log(data);
+          }, (error) =>{
+            alert(error);
+          }
+        )
       })
       
     }
