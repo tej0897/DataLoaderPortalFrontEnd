@@ -9,12 +9,22 @@ import { UserComponent } from './user/user.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AuthGuard } from './_auth/auth.guard';
 import { AuthInterceptor } from './_auth/auth.interceptor';
 import { UserService } from './_services/user.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { DialogComponent } from './dialog/dialog.component'
+
+
 
 @NgModule({
   declarations: [
@@ -25,22 +35,31 @@ import { UserService } from './_services/user.service';
     LoginComponent,
     HeaderComponent,
     ForbiddenComponent,
+    DialogComponent,
   ],
   imports: [
+    MatIconModule,
+    MatInputModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatTableModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
     RouterModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [
-    AuthGuard, 
+    AuthGuard,
     {
       provide: HTTP_INTERCEPTORS,
-      useClass:AuthInterceptor,
-      multi:true
+      useClass: AuthInterceptor,
+      multi: true,
     },
-    UserService
+    UserService,
   ],
   bootstrap: [AppComponent],
 })

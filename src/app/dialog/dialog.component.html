@@ -1,0 +1,46 @@
+<h1 mat-dialog-title>Edit Patient Details:</h1>
+<div mat-dialog-content>
+  <form [formGroup]="patientForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Patient Name</mat-label>
+      <input formControlName="patientName" matInput placeholder="patientName" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>address</mat-label>
+      <input formControlName="address" matInput placeholder="address" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>dob</mat-label>
+      <input formControlName="dob" matInput placeholder="dob" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>email</mat-label>
+      <input formControlName="email" matInput placeholder="email" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>phone</mat-label>
+      <input formControlName="phone" matInput placeholder="phone" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>drugID</mat-label>
+      <input formControlName="drugID" matInput placeholder="drugID" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>drugName</mat-label>
+      <input formControlName="drugName" matInput placeholder="drugName" />
+    </mat-form-field>
+  </form>
+</div>
+
+<div mat-dialog-action [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    <button style="margin-left: 8px;" mat-raised-button color="primary" (click)="addProduct()">Save</button>
+
+
+</div>
